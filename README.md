@@ -4,7 +4,7 @@
 ![Status](https://img.shields.io/badge/Status-Prototype-yellow)
 ![Made with](https://img.shields.io/badge/Made%20with-C%2B%2B-blue)
 
-An Arduino-powered smart bracelet that monitors **temperature**, **stress levels**, and **heart rate**  
+An Arduino-powered smart bracelet that monitors **temperature** and **stress levels**  
 to help prevent burnout with vibration alerts, LED breathing exercises, and real-time feedback.
 
 ---
@@ -16,13 +16,17 @@ a program supported by **Launch Romania** and **How to Web**.
 The bracelet combines multiple sensors to remind the user to take breaks, breathe, or move—  
 helping reduce stress and avoid burnout.
 
+Initially I planned to include **heart-rate variability (HRV) monitoring**,  
+but I encountered numerous hardware and signal-processing issues.  
+As a temporary workaround, I used an **arbitrary threshold value** in the code  
+to simulate a high-stress condition for testing and demonstration purposes.
+
 ---
 
 ## ✨ Features
 - **Temperature & Stress Monitoring** – DS18B20 and Grove GSR sensors.
 - **Break Alerts** – Soft pulsing buzzer and vibration when thresholds are exceeded.
 - **Breathing Exercise** – LED guides a 4-7-8 breathing pattern.
-- **Future Mobile App** – Notifications, Pomodoro timer, daily/weekly summaries.
 
 ---
 
@@ -30,12 +34,10 @@ helping reduce stress and avoid burnout.
 - Bluetooth link with a companion mobile app for real-time data.
 - Customizable vibration/LED alert patterns.
 - Cloud data logging and long-term analytics.
-- Heart-rate variability (HRV) monitoring.
 
 ---
 
 ## 🔌 Pinout / Wiring
-
 | Component              | Arduino Pin | Notes                                      |
 |------------------------|-----------:|--------------------------------------------|
 | DS18B20 (Temp) Data    | 4          | +4.7 kΩ pull-up to 5 V/3.3 V               |
@@ -44,7 +46,6 @@ helping reduce stress and avoid burnout.
 | Buzzer                 | 9          | Used with `tone()`                         |
 | Vibration Motor        | via MOSFET | Any digital pin, external power recommended |
 | GSR Sensor             | A0/A1      | Depends on module                           |
-| MAX30102 (Heart Rate)  | SDA/SCL    | I²C                                        |
 | Bluetooth Module       | TX/RX      | For future mobile app                       |
 
 ---
@@ -53,7 +54,6 @@ helping reduce stress and avoid burnout.
 - Arduino-compatible board  
 - DS18B20 temperature sensor  
 - Grove GSR Sensor  
-- MAX30102 heart-rate sensor  
 - RGB LED  
 - Coin vibration motor + MOSFET  
 - Push button  
@@ -64,3 +64,7 @@ helping reduce stress and avoid burnout.
 ## 💻 Code
 Main sketch: [`code/burnout_bracelet.ino`](code/burnout_bracelet.ino)
 
+Key libraries:
+```cpp
+#include <OneWire.h>
+#include <DallasTemperature.h>
