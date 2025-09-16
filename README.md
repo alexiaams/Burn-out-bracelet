@@ -81,8 +81,7 @@ Adjust this threshold to fit your environment (e.g. 33.5–36 °C).
 ---
 
 ## 📸 Demo
-
-![Demo](media/Demo video.mp4)
+[▶ Watch the demo video](https://github.com/alexiaams/Burn-out-bracelet/raw/main/media/Demo%20video.mp4)
 
 ---
 
