@@ -62,7 +62,7 @@ to simulate a high-stress condition for testing and demonstration purposes.
 ---
 
 ## 💻 Code
-Main sketch: [`code/Arduino Code.ino`](code/Arduino Code.ino)
+Main sketch: [`code/arduino_code.ino`](code/arduino_code.ino)
 
 
 ## ⚙️ Calibration / Thresholds
