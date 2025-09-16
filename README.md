@@ -62,7 +62,7 @@ to simulate a high-stress condition for testing and demonstration purposes.
 ---
 
 ## 💻 Code
-Main sketch: [`code/burnout_bracelet.ino`](code/burnout_bracelet.ino)
+Main sketch: [`code/Arduino Code.ino`](code/Arduino Code.ino)
 
 
 ## ⚙️ Calibration / Thresholds
